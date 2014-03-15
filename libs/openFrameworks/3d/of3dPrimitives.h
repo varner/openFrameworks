@@ -22,11 +22,21 @@ public:
     of3dPrimitive(const of3dPrimitive & mom);
     of3dPrimitive & operator=(const of3dPrimitive & mom);
 
+    /// \brief Creates tex coordinates from texture (does not store texture!)
+    /// 
+    /// Will create normalized tex coords if non-arb
+    /// Defaults of index 0
+    ///
+    /// \param u1 EDIT ME
+    /// \param v1 EDIT ME
+    /// \param u2 EDIT ME
+    /// \param v2 EDIT ME
     void mapTexCoords( float u1, float v1, float u2, float v2 );
     //void setTexCoords( int meshindex, float u1, float v1, float u2, float v2 );
     // does not store texture. Creates tex coords from texture, if texture is
     // non-arb, then it will create normalized tex coords //
     // defaults to index 0 
+    
     void mapTexCoordsFromTexture( ofTexture& inTexture );
     
     
@@ -77,18 +87,35 @@ protected:
 
 class ofPlanePrimitive : public of3dPrimitive {
 public:
+
     ofPlanePrimitive();
     ofPlanePrimitive( float width, float height, int columns, int rows, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     ~ofPlanePrimitive();
     
+    /// \brief Verbose set method for plane.
+    ///
+    /// \param width Width of the plane
+    /// \param height Height of the plane
+    /// \param columns Number of columns for faces
+    /// \param rows Number of rows for faces
+    /// \param mode Optional, defaults to triangle strip
     void set(float width, float height, int columns, int rows, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     void set( float width, float height );
     void resizeToTexture( ofTexture& inTexture, float scale=1.f );
     void setWidth( float width );
     void setHeight( float height );
     
+    /// \brief Set just column amount
+    /// \param columns Number of columns
     void setColumns( int columns );
+    
+    /// \brief Set just row amount
+    /// \param rows Number of rows
     void setRows( int rows );
+    
+    /// \brief Set both rows & columns
+    /// \param columns
+    /// \param rows 
     void setResolution( int columns, int rows );
     void setMode( ofPrimitiveMode mode );
     
@@ -112,12 +139,28 @@ public:
     ofSpherePrimitive( float radius, int res, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     ~ofSpherePrimitive();
     
+    /// \brief Verbose set method for sphere.
+    /// 
+    /// \param radius 
+    /// \param resolution 
+    /// \param mode
     void set( float radius, int resolution, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     void setResolution( int res );
+    
+    /// \brief Set radius of sphere.
+    /// \param radius 
     void setRadius(float radius);
+    
+    /// \brief Get mode
+    /// \returns mode
     void setMode( ofPrimitiveMode mode );
     
+    /// \brief Get radius value
+    /// \returns radius
     float getRadius();
+    
+    /// \brief Get resolution value
+    /// \returns resolution
     int getResolution();
     
 protected:
