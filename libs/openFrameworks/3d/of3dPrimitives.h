@@ -93,7 +93,6 @@ public:
     ~ofPlanePrimitive();
     
     /// \brief Verbose set method for plane.
-    ///
     /// \param width Width of the plane
     /// \param height Height of the plane
     /// \param columns Number of columns for faces
@@ -106,6 +105,9 @@ public:
     /// \param height Height of the plane
     void set( float width, float height );
     
+    /// \brief 
+    /// \param inTexture
+    /// \param scale Optional.
     void resizeToTexture( ofTexture& inTexture, float scale=1.f );
     
     /// \brief Set just the width
@@ -166,7 +168,6 @@ public:
     ~ofSpherePrimitive();
     
     /// \brief Verbose set method for sphere.
-    /// 
     /// \param radius The radius of the sphere
     /// \param res The amount of latitude divides along the sphere.
     /// \param mode The ofPrimitiveMode being used
@@ -236,7 +237,6 @@ public:
     ~ofCylinderPrimitive();
     
     /// \brief Verbose set method for cylinder
-    ///
     /// \param radius Float of the radius of the cylinder
     /// \param height Float of the height of the cylinder
     /// \param radiusSegments Amount of faces subdividing the circle face (think longitude on a globe)
@@ -298,20 +298,56 @@ public:
     /// \param ofColor
     void setBottomCapColor( ofColor color );
     
+    /// \brief 
+    /// \returns 
     vector<ofIndexType> getTopCapIndices();
+    
+    /// \brief 
+    /// \returns 
     ofMesh getTopCapMesh();
+    
+    /// \brief 
+    /// \returns 
     vector<ofIndexType> getCylinderIndices();
+    
+    /// \brief 
+    /// \returns 
     ofMesh getCylinderMesh();
+    
+    /// \brief 
+    /// \returns 
     vector<ofIndexType> getBottomCapIndices();
+    
+    /// \brief 
+    /// \returns 
     ofMesh getBottomCapMesh();
     
+    /// \brief 
+    /// \returns 
     int getResolutionRadius();
+    
+    /// \brief 
+    /// \returns 
     int getResolutionHeight();
+    
+    /// \brief 
+    /// \returns 
     int getResolutionCap();
+    
+    /// \brief 
+    /// \returns 
     ofVec3f getResolution();
     
+    /// \brief 
+    /// \returns 
     float getHeight();
+    
+    /// \brief 
+    /// \returns 
     float getRadius();
+    
+    /// \brief 
+    /// \returns 
     bool getCapped();
     
 protected:
@@ -330,6 +366,13 @@ public:
     ofConePrimitive( float radius, float height, int radiusSegments, int heightSegments, int capSegments=2, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     ~ofConePrimitive();
     
+    /// \brief Verbose set method for cone
+    /// \param radius Float of the radius of the cylinder
+    /// \param height Float of the height of the cylinder
+    /// \param radiusSegments Amount of faces subdividing the circle face (think longitude on a globe)
+    /// \param heightSegments Amount of vertical faces (think latitude on a globe)
+    /// \param capSegments Circular plane creates triangles, you're subdividing those triangles. Optional.
+    /// \param mode The ofPrimitiveMode being used
     void set( float radius, float height, int radiusSegments, int heightSegments, int capSegments=2, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     void set( float radius, float height );
     void setResolutionRadius( int radiusRes );
@@ -391,6 +434,11 @@ public:
     /// \param resHeight Amount of subdivisions of the faces height-wise
     /// \param resDepth Amount of subdivisions of the fasces depth-wise
     void set( float width, float height, float depth, int resWidth, int resHeight, int resDepth);
+    
+    /// \brief Set the dimensions of the box
+    /// \param width Width of the box, float
+    /// \param height Height of the box, float
+    /// \param depth Depth of the box, float
     void set( float width, float height, float depth );
     
     /// \brief Set method to create a cube (All sides are the same length)
@@ -415,37 +463,68 @@ public:
     ofMesh getSideMesh( int sideIndex );
     
     /// \brief Set the same resolution for all sides
-    /// \param res
+    /// \param res Amount of subdivisions of the faces
     void setResolution( int res );
     
     /// \brief Set just the resolution width
-    /// \param widthRes
+    /// \param resWidth Amount of subdivisions of the faces width-wise
     void setResolutionWidth( int widthRes );
 
     /// \brief Set just the resolution height
-    /// \param heightRes
+    /// \param resHeight Amount of subdivisions of the faces height-wise
     void setResolutionHeight( int heightRes );
     
     /// \brief Set just the resolution depth
-    /// \param depthRes
+    /// \param resDepth Amount of subdivisions of the fasces depth-wise
     void setResolutionDepth( int depthRes );
 
     /// \brief Set the resolution for all
-    /// \param resWidth, resHeight, resDepth
+    /// \param resWidth Amount of subdivisions of the faces width-wise
+    /// \param resHeight Amount of subdivisions of the faces height-wise
+    /// \param resDepth Amount of subdivisions of the fasces depth-wise
     void setResolution( int resWidth, int resHeight, int resDepth );
-    
+ 
+    /// \brief Set the ofPrimitiveMode
+    /// \param mode The ofPrimitiveMode being used   
     void setMode( ofPrimitiveMode mode );
+    
+    /// \brief
+    /// \param sideIndex
+    /// \param color
     void setSideColor( int sideIndex, ofColor color );
     
+    /// \brief
+    /// \returns
     int getResolutionWidth();
+    
+    /// \brief
+    /// \returns
     int getResolutionHeight();
+    
+    /// \brief
+    /// \returns
     int getResolutionDepth();
+    
+    /// \brief
+    /// \returns
     ofVec3f getResolution();
     
+    /// \brief
+    /// \returns
     float getWidth();
+    
+    /// \brief
+    /// \returns
     float getHeight();
+    
+    /// \brief
+    /// \returns
     float getDepth();
+    
+    /// \brief
+    /// \returns
     ofVec3f getSize() const;
+    
 protected:
     ofVec3f size;
     ofVec3f resolution;
