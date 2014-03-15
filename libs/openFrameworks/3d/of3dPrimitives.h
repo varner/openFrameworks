@@ -383,12 +383,30 @@ public:
     ofBoxPrimitive( float width, float height, float depth, int resWidth=2, int resHeight=2, int resDepth=2 );
     ~ofBoxPrimitive();
     
+    /// \brief Verbose set method for box
+    /// \param width Width of the box, float
+    /// \param height Height of the box, float
+    /// \param depth Depth of the box, float
+    /// \param resWidth Amount of subdivisions of the faces width-wise
+    /// \param resHeight Amount of subdivisions of the faces height-wise
+    /// \param resDepth Amount of subdivisions of the fasces depth-wise
     void set( float width, float height, float depth, int resWidth, int resHeight, int resDepth);
     void set( float width, float height, float depth );
-    void set( float size ); // all sides the same dimensions //
     
+    /// \brief Set method to create a cube (All sides are the same length)
+    /// \param size Length of any given side of the box, Float
+    void set( float size );
+    
+    /// \brief Set just the width of the box
+    /// \param a_width
     void setWidth( float a_width );
+    
+    /// \brief Set just the height of the box
+    /// \param a_height
     void setHeight( float a_height );
+    
+    /// \brief Set just the width of the box
+    /// \param a_depth
     void setDepth( float a_depth );
     
     void resizeToTexture( ofTexture& inTexture );
@@ -396,10 +414,24 @@ public:
     vector<ofIndexType> getSideIndices( int sideIndex );
     ofMesh getSideMesh( int sideIndex );
     
-    void setResolution( int res ); // same resolution for all sides //
+    /// \brief Set the same resolution for all sides
+    /// \param res
+    void setResolution( int res );
+    
+    /// \brief Set just the resolution width
+    /// \param widthRes
     void setResolutionWidth( int widthRes );
+
+    /// \brief Set just the resolution height
+    /// \param heightRes
     void setResolutionHeight( int heightRes );
+    
+    /// \brief Set just the resolution depth
+    /// \param depthRes
     void setResolutionDepth( int depthRes );
+
+    /// \brief Set the resolution for all
+    /// \param resWidth, resHeight, resDepth
     void setResolution( int resWidth, int resHeight, int resDepth );
     
     void setMode( ofPrimitiveMode mode );
