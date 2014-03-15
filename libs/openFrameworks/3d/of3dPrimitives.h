@@ -100,9 +100,20 @@ public:
     /// \param rows Number of rows for faces
     /// \param mode Optional, defaults to triangle strip
     void set(float width, float height, int columns, int rows, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
+    
+    /// \brief Set just the width and height
+    /// \param width Width of the plane
+    /// \param height Height of the plane
     void set( float width, float height );
+    
     void resizeToTexture( ofTexture& inTexture, float scale=1.f );
+    
+    /// \brief Set just the width
+    /// \param width Width of the plane
     void setWidth( float width );
+
+    /// \brief Set just the height
+    /// \param width Height of the plane
     void setHeight( float height );
     
     /// \brief Set just column amount
@@ -114,17 +125,32 @@ public:
     void setRows( int rows );
     
     /// \brief Set both rows & columns
-    /// \param columns
-    /// \param rows 
+    /// \param columns Number of columns for faces
+    /// \param rows Number of rows for faces
     void setResolution( int columns, int rows );
+    
+    /// \brief Set mode of plane
+    /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
     
+    /// \brief Get the amount of columns
+    /// \returns An int with the total amount of columns
     int getNumColumns();
+    
+    /// \brief Get the amount of rows
+    /// \returns An int with the total amount of rows
     int getNumRows();
-    // x = columns, y = rows //
+    
+    /// \brief Gets the amount of rows and columns.
+    /// \returns A 2D vector where (x = columns) and (y = rows)
     ofVec2f getResolution();
     
+    /// \brief Gets width of the plane
+    /// \returns A float of the width of the plane
     float getWidth();
+    
+    /// \brief Gets height of the plane
+    /// \returns A float of the height of the plane
     float getHeight();
     
 protected:
@@ -141,26 +167,29 @@ public:
     
     /// \brief Verbose set method for sphere.
     /// 
-    /// \param radius 
-    /// \param resolution 
-    /// \param mode
+    /// \param radius The radius of the sphere
+    /// \param res The amount of latitude divides along the sphere.
+    /// \param mode The ofPrimitiveMode being used
     void set( float radius, int resolution, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
+    
+    /// \brief set the resolution of the sphere.
+    /// \param res The amount of latitude divides along the sphere.
     void setResolution( int res );
     
     /// \brief Set radius of sphere.
-    /// \param radius 
+    /// \param radius The radius of the sphere
     void setRadius(float radius);
     
-    /// \brief Get mode
-    /// \returns mode
+    /// \brief Set mode of sphere
+    /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
     
     /// \brief Get radius value
-    /// \returns radius
+    /// \param radius A float, radius of the sphere
     float getRadius();
     
     /// \brief Get resolution value
-    /// \returns resolution
+    /// \returns An int of the amount of latitude divides along the sphere.
     int getResolution();
     
 protected:
