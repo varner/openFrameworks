@@ -220,6 +220,7 @@ public:
     /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
     
+    // \brief Set the mode 
     float getRadius();
     int getResolution();
     
@@ -285,8 +286,16 @@ public:
     /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
     
+    /// \brief Sets the color of the top cap
+    /// \param ofColor
     void setTopCapColor( ofColor color );
+    
+    /// \brief Sets the color of the cylinder
+    /// \param ofColor
     void setCylinderColor( ofColor color );
+    
+    /// \brief Sets the color of the bottom cap
+    /// \param ofColor
     void setBottomCapColor( ofColor color );
     
     vector<ofIndexType> getTopCapIndices();
@@ -304,6 +313,7 @@ public:
     float getHeight();
     float getRadius();
     bool getCapped();
+    
 protected:
     float radius;
     float height;
