@@ -222,16 +222,49 @@ public:
     ofCylinderPrimitive( float radius, float height, int radiusSegments, int heightSegments, int capSegments=2, bool bCapped = true,ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
     ~ofCylinderPrimitive();
     
+    /// \brief Verbose set method for cylinder
+    ///
+    /// \param radius Float of the radius of the cylinder
+    /// \param height Float of the height of the cylinder
+    /// \param radiusSegments Amount of faces subdividing the circle face (think longitude on a globe)
+    /// \param heightSegments Amount of vertical faces (think latitude on a globe)
+    /// \param capSegments Circular plane creates triangles, you're subdividing those triangles. Optional.
+    /// \param bCapped If false cylinder has no endcaps (like a pipe), else normal closed cylinder. Optional.
+    /// \param mode The ofPrimitiveMode being used
     void set( float radius, float height, int radiusSegments, int heightSegments, int capSegments=2, bool bCapped=true,ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
+
+    /// \brief Set just the radius, height, and optionally the endcaps.
+    /// \param radius Float of the radius of the cylinder
+    /// \param height Float of the height of the cylinder
+    /// \param bCapped If false cylinder has no endcaps (like a pipe), else normal closed cylinder. Optional.
     void set( float radius, float height, bool bCapped=true );
+   
+    /// \brief Set just the radius
+    /// \param radius Float of the radius of the cylinder
     void setRadius( float radius );
+    
+    /// \brief Set just the height
+    /// \param height Float of the height of the cylinder
     void setHeight( float height );
+    
+    /// \brief Set the endcaps' state
+    /// \param bCapped If false cylinder has no endcaps (like a pipe), else normal closed cylinder.
     void setCapped( bool bCapped );
     
+    /// \brief Set just the radius resolution
     void setResolutionRadius( int radiusRes );
+    
+    /// \brief Set just the radius resolution
     void setResolutionHeight( int heightRes );
+    
+    /// \brief Set just the resolution cap
     void setResolutionCap( int capRes );
+    
+    /// \brief Set ALLL the resolution
     void setResolution( int radiusSegments, int heightSegments, int capSegments=2 );
+    
+    /// \brief Set mode of cylinder
+    /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
     
     void setTopCapColor( ofColor color );
