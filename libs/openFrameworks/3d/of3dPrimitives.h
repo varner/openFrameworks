@@ -247,7 +247,7 @@ public:
     
     /// \brief Get the radius
     ///
-    /// \returns , float
+    /// \returns The radius of the IcoSphere, float
     float getRadius();
     
     /// \brief Gets the resolution of the IcoSphere
@@ -346,9 +346,9 @@ public:
     /// \returns 
     vector<ofIndexType> getTopCapIndices();
     
-    /// \brief 
+    /// \brief Gets a the mesh of the top cap (NOT entire cylinder)
     ///
-    /// \returns 
+    /// \returns A ofMesh of the top cap (NOT entire cylinder)
     ofMesh getTopCapMesh();
     
     /// \brief 
@@ -356,9 +356,9 @@ public:
     /// \returns 
     vector<ofIndexType> getCylinderIndices();
     
-    /// \brief 
+    /// \brief Gets the mesh of the cylinder (including caps)
     ///
-    /// \returns 
+    /// \returns The mesh of the entire cylinder
     ofMesh getCylinderMesh();
     
     /// \brief 
@@ -366,29 +366,29 @@ public:
     /// \returns 
     vector<ofIndexType> getBottomCapIndices();
     
-    /// \brief 
+    /// \brief Gets of the mesh of the bottom cap (NOT entire cylinder)
     ///
-    /// \returns 
+    /// \returns A ofMesh of the bottom cap (NOT entire cylinder)
     ofMesh getBottomCapMesh();
     
-    /// \brief 
+    /// \brief Gets the resolution of the cyldiner's radius
     ///
-    /// \returns 
+    /// \returns
     int getResolutionRadius();
     
-    /// \brief 
+    /// \brief Gets the resolution of the cylinder's height
     ///
     /// \returns 
     int getResolutionHeight();
     
-    /// \brief 
+    /// \brief Gets the resolution of the cap
     ///
     /// \returns 
     int getResolutionCap();
     
-    /// \brief 
+    /// \brief Gets the resolution of the cylinder
     ///
-    /// \returns 
+    /// \returns A 3D vector with the format (radiusSegments, heightSegments, capSegments)
     ofVec3f getResolution();
     
     /// \brief 
@@ -424,24 +424,65 @@ public:
     
     /// \brief Verbose set method for cone
     ///
-    /// \param radius Float of the radius of the cylinder
-    /// \param height Float of the height of the cylinder
+    /// \param radius The radius of the cone, float
+    /// \param height The height of the cone, float
     /// \param radiusSegments Amount of faces subdividing the circle face (think longitude on a globe)
     /// \param heightSegments Amount of vertical faces (think latitude on a globe)
     /// \param capSegments Circular plane creates triangles, you're subdividing those triangles. Optional.
     /// \param mode The ofPrimitiveMode being used
     void set( float radius, float height, int radiusSegments, int heightSegments, int capSegments=2, ofPrimitiveMode mode=OF_PRIMITIVE_TRIANGLE_STRIP );
+    
+    /// \brief Set just the radius and height of cone
+    ///
+    /// \param radius The radius of the cone, float
+    /// \param height The height of the cone, float
     void set( float radius, float height );
+    
+    /// \brief Set just the resolution the cone radius (as opposed to the cap)
+    /// 
+    /// \param radiusRes
     void setResolutionRadius( int radiusRes );
+    
+    /// \brief Set just the resolution of the cone height (as opposed to the cap)
+    /// 
+    /// \param heightRes
     void setResolutionHeight( int heightRes );
+    
+    /// \brief Set just the resolution of the cap (as opposed to the cone)
+    ///
+    /// \param capRes
     void setResolutionCap( int capRes );
+    
+    /// \brief 
+    ///
+    /// \param 
+    /// \param
+    /// \param
     void setResolution( int radiusRes, int heightRes, int capRes );
     
+    /// \brief Set just the mode of the cone/cap.
+    ///
+    /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
+    
+    /// \brief Set just the radius of the cone
+    ///
+    /// \param radius The radius of the cone, float
     void setRadius( float radius );
+    
+    /// \brief Set the height of the cone
+    ///
+    /// \param height The height of the cone, float
     void setHeight( float height );
     
+    /// \brief Set the color of the cone (discluding the cap)
+    ///
+    /// \param color
     void setTopColor( ofColor color );
+    
+    /// \brief Set the color of the cap (not the rest of the cone)
+    ///
+    /// \param color    
     void setCapColor( ofColor color );
     
     vector<ofIndexType> getConeIndices();
@@ -591,7 +632,7 @@ public:
     /// \returns Amount of subdivisions depth-wise, int
     int getResolutionDepth();
     
-    /// \brief
+    /// \brief Gets the resolution of the cone (but not the cap!)
     ///
     /// \returns
     ofVec3f getResolution();
