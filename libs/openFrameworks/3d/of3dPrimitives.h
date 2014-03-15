@@ -232,7 +232,7 @@ public:
     
     /// \brief Set the resolution of the IcoSphere
     ///
-    /// \param iterations
+    /// \param iterations The level of resolution you want? 
     void setResolution( int iterations );
     
     /// \brief Set the radius of the IcoSphere
