@@ -489,7 +489,7 @@ public:
     void setMode( ofPrimitiveMode mode );
     
     /// \brief
-    /// \param sideIndex
+    /// \param sideIndex 
     /// \param color
     void setSideColor( int sideIndex, ofColor color );
     
