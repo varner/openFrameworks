@@ -109,8 +109,8 @@ public:
     
     /// \brief 
     ///
-    /// \param inTexture
-    /// \param scale Optional.
+    /// \param inTexture ________
+    /// \param scale ________ Optional.
     void resizeToTexture( ofTexture& inTexture, float scale=1.f );
     
     /// \brief Set just the width
@@ -237,10 +237,12 @@ public:
     
     /// \brief Set the radius of the IcoSphere
     ///
-    /// \param radius   
+    /// \param radius The radius of the IcoSphere, float 
     void setRadius( float radius );
     
     /// \brief Set the mode of the IcoSphere
+    ///
+    /// \warning ofIcoSpherePrimitive only works with OF_PRIMITIVE_TRIANGLES
     ///
     /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
@@ -252,7 +254,7 @@ public:
     
     /// \brief Gets the resolution of the IcoSphere
     ///
-    /// \returns 
+    /// \returns The resolution of the IcoSphere, int
     int getResolution();
     
 protected:
@@ -328,22 +330,24 @@ public:
     
     /// \brief Sets the color of the top cap
     ///
-    /// \param ofColor
+    /// \param color The desired color
     void setTopCapColor( ofColor color );
     
     /// \brief Sets the color of the cylinder
     ///
-    /// \param ofColor 
+    /// \param color The desired color
     void setCylinderColor( ofColor color );
     
     /// \brief Sets the color of the bottom cap
     ///
-    /// \param ofColor 
+    /// \param color The desired color
     void setBottomCapColor( ofColor color );
     
-    /// \brief 
+    /// \brief Gets a list of face indices for the top cap
     ///
-    /// \returns 
+    /// \warning Mode must be in triangle strip mode
+    ///
+    /// \returns A list of face indicdes for the top cap
     vector<ofIndexType> getTopCapIndices();
     
     /// \brief Gets a the mesh of the top cap (NOT entire cylinder)
@@ -351,9 +355,11 @@ public:
     /// \returns A ofMesh of the top cap (NOT entire cylinder)
     ofMesh getTopCapMesh();
     
-    /// \brief 
+    /// \brief Gets a list of face indices for the cylinder
     ///
-    /// \returns 
+    /// \warning Mode must be in triangle strip mode
+    ///
+    /// \returns A list of face indices for the cylinder
     vector<ofIndexType> getCylinderIndices();
     
     /// \brief Gets the mesh of the cylinder (including caps)
@@ -361,9 +367,11 @@ public:
     /// \returns The mesh of the entire cylinder
     ofMesh getCylinderMesh();
     
-    /// \brief 
+    /// \brief Gets a list of face indices for the bottom cap
     ///
-    /// \returns 
+    /// \warning Mode must be in triangle strip mode
+    ///
+    /// \returns A list of the face indices for the bottom cap
     vector<ofIndexType> getBottomCapIndices();
     
     /// \brief Gets of the mesh of the bottom cap (NOT entire cylinder)
@@ -371,19 +379,19 @@ public:
     /// \returns A ofMesh of the bottom cap (NOT entire cylinder)
     ofMesh getBottomCapMesh();
     
-    /// \brief Gets the resolution of the cyldiner's radius
+    /// \brief Gets the resolution of the cylinder's radius
     ///
-    /// \returns
+    /// \returns The resolution of the cylinder's radius 
     int getResolutionRadius();
     
     /// \brief Gets the resolution of the cylinder's height
     ///
-    /// \returns 
+    /// \returns The amount of subdivisions running parallel to the caps (resolution of the cylinder height)
     int getResolutionHeight();
     
     /// \brief Gets the resolution of the cap
     ///
-    /// \returns 
+    /// \returns The amount of segments for the cap
     int getResolutionCap();
     
     /// \brief Gets the resolution of the cylinder
@@ -391,14 +399,14 @@ public:
     /// \returns A 3D vector with the format (radiusSegments, heightSegments, capSegments)
     ofVec3f getResolution();
     
-    /// \brief 
+    /// \brief Gets the height of the cylinder
     ///
-    /// \returns 
+    /// \returns The height of the cylinder
     float getHeight();
     
-    /// \brief 
+    /// \brief Gets the radius of the cylinder
     ///
-    /// \returns 
+    /// \returns The radius of the cylinder
     float getRadius();
     
     /// \brief 
@@ -440,24 +448,24 @@ public:
     
     /// \brief Set just the resolution the cone radius (as opposed to the cap)
     /// 
-    /// \param radiusRes
+    /// \param radiusRes The amount of segments for the radius
     void setResolutionRadius( int radiusRes );
     
     /// \brief Set just the resolution of the cone height (as opposed to the cap)
     /// 
-    /// \param heightRes
+    /// \param heightRes The amount of segments for the height
     void setResolutionHeight( int heightRes );
     
     /// \brief Set just the resolution of the cap (as opposed to the cone)
     ///
-    /// \param capRes
+    /// \param capRes The amount of segments for the cap
     void setResolutionCap( int capRes );
     
-    /// \brief 
+    /// \brief Set the resolution for the cone
     ///
-    /// \param 
-    /// \param
-    /// \param
+    /// \param radiusRes The amount of segments for the radius
+    /// \param heightRes The amount of segments for the height
+    /// \param capRes The amount of segments for the cap
     void setResolution( int radiusRes, int heightRes, int capRes );
     
     /// \brief Set just the mode of the cone/cap.
@@ -477,39 +485,51 @@ public:
     
     /// \brief Set the color of the cone (discluding the cap)
     ///
-    /// \param color
+    /// \param color The desired color 
     void setTopColor( ofColor color );
     
     /// \brief Set the color of the cap (not the rest of the cone)
     ///
-    /// \param color    
+    /// \param color The desired color
     void setCapColor( ofColor color );
     
     vector<ofIndexType> getConeIndices();
     ofMesh getConeMesh();
     
-    /// \brief
     vector<ofIndexType> getCapIndices();
     
     /// \brief Returns an ofMesh made up of the cap (NOT including the cone)
     /// \returns an ofMesh of the cap (NOT including the cone)
     ofMesh getCapMesh();
     
-    /// \brief **WIP**
+    /// \brief Gets the resolution for the radius
+    ///
+    /// \returns The amount of segments for the radius
     int getResolutionRadius();
     
-    /// \brief **WIP**
+    /// \brief Gets the resolution for the height
+    ///
+    /// \returns The amount of segments for the height
     int getResolutionHeight();
     
     /// \brief Gets the radius of the cap (rather than the cone)
-    /// \returns Subdivisions for the cap, int
+    ///
+    /// \returns Segments for the cap
     int getResolutionCap();
     
     /// \brief Get resolution of the cone (rather than the cap)
-    /// \returns 3D vector of **WIP**
+    ///
+    /// \returns A vector with the segments for the cone in the format (radiusSegments, heightSegments, capSegments)
     ofVec3f getResolution();
     
+    /// \brief Gest the radius of the cone
+    ///
+    /// \returns The radius of the cone
     float getRadius();
+    
+    /// \brief Gets the height of the cone
+    ///
+    /// \returns The height of the cone
     float getHeight();
     
 protected:
@@ -557,27 +577,33 @@ public:
     
     /// \brief Set method to create a cube (All sides are the same length)
     ///
-    /// \param size Length of any given side of the box, Float
+    /// \param size Length of any given side of the box, float
     void set( float size );
     
     /// \brief Set just the width of the box
     ///
-    /// \param a_width
+    /// \param a_width Desired width of the box, float
     void setWidth( float a_width );
     
     /// \brief Set just the height of the box
     ///
-    /// \param a_height
+    /// \param a_height Desired height of the box, float
     void setHeight( float a_height );
     
-    /// \brief Set just the width of the box
+    /// \brief Set just the depth of the box
     ///
-    /// \param a_depth
+    /// \param a_depth Desired depth of the box, float
     void setDepth( float a_depth );
     
     void resizeToTexture( ofTexture& inTexture );
     
     vector<ofIndexType> getSideIndices( int sideIndex );
+    
+    /// \brief Gets the mesh of the given side
+    ///
+    /// \param sideIndex The index of the desired side
+    ///
+    /// \returns returns a mesh of the given side
     ofMesh getSideMesh( int sideIndex );
     
     /// \brief Set the same resolution for all sides
@@ -611,10 +637,10 @@ public:
     /// \param mode The ofPrimitiveMode being used   
     void setMode( ofPrimitiveMode mode );
     
-    /// \brief 
+    /// \brief Sets the color for the given side
     ///
-    /// \param sideIndex 
-    /// \param color
+    /// \param sideIndex The index number for the desired side
+    /// \param color The desired color
     void setSideColor( int sideIndex, ofColor color );
     
     /// \brief Gets the resolution for the width
@@ -632,9 +658,9 @@ public:
     /// \returns Amount of subdivisions depth-wise, int
     int getResolutionDepth();
     
-    /// \brief Gets the resolution of the cone (but not the cap!)
+    /// \brief Gets the resolution of the box
     ///
-    /// \returns
+    /// \returns A 3D Vector of the resolution with the format (width, height, depth)
     ofVec3f getResolution();
     
     /// \brief Gets the width of the box
