@@ -203,9 +203,21 @@ public:
     ofIcoSpherePrimitive( float radius, int iterations );
     ~ofIcoSpherePrimitive();
     
+    /// \brief Set radius and resolution of the IcoSphere
+    /// \param radius
+    /// \param res
     void set( float radius, int res );
+    
+    /// \brief Set the resolution of the IcoSphere
+    /// \param iterations
     void setResolution( int iterations );
+    
+    /// \brief Set the radius of the IcoSphere
+    /// \param radius   
     void setRadius( float radius );
+    
+    /// \brief Set the mode of the IcoSphere
+    /// \param mode The ofPrimitiveMode being used
     void setMode( ofPrimitiveMode mode );
     
     float getRadius();
@@ -252,15 +264,21 @@ public:
     void setCapped( bool bCapped );
     
     /// \brief Set just the radius resolution
+    /// \param radiusRes Amount of faces subdividing the circle face (think longitude on a globe)
     void setResolutionRadius( int radiusRes );
     
     /// \brief Set just the radius resolution
+    /// \param heightRes Amount of vertical faces (think latitude on a globe)
     void setResolutionHeight( int heightRes );
     
     /// \brief Set just the resolution cap
+    /// \param capRes Circular plane creates triangles, you're subdividing those triangles. Optional.
     void setResolutionCap( int capRes );
     
     /// \brief Set ALLL the resolution
+    /// \param radiusSegments Amount of faces subdividing the circle face (think longitude on a globe)
+    /// \param heightSegments Amount of vertical faces (think latitude on a globe)
+    /// \param capSegments Circular plane creates triangles, you're subdividing those triangles. Optional.
     void setResolution( int radiusSegments, int heightSegments, int capSegments=2 );
     
     /// \brief Set mode of cylinder
